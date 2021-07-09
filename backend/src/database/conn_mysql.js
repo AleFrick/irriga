@@ -7,5 +7,5 @@ const sequelize = new Sequelize(process.env.NAME_DB, process.env.USER_DB, proces
   port: process.env.PORT_DB  
 })
 
-
+global.keyApi = process.env.API_KEY
 module.exports = { sequelize }
