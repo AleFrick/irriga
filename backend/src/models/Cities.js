@@ -32,13 +32,13 @@ const Cities = conn.sequelize.define('cities', {
   })
 
   Cities.beforeCreate(async(Cities) => {        
-    Cities.dt_criacao = moment().format('YYYY-MM-DD')
-    Cities.dt_alteracao = moment().format('YYYY-MM-DD')
-    Cities.hr_alteracao = moment().format('HH:mm')
+    Cities.dt_created = moment().format('YYYY-MM-DD')
+    Cities.dt_altered = moment().format('YYYY-MM-DD')
+    Cities.hr_altered = moment().format('HH:mm')
   })
   Cities.beforeUpdate(async(Cities) => {    
-    Cities.dt_alteracao = moment().format('YYYY-MM-DD')
-    Cities.hr_alteracao = moment().format('HH:mm')
+    Cities.dt_altered = moment().format('YYYY-MM-DD')
+    Cities.hr_altered = moment().format('HH:mm')
   })
 
   Cities.sync({force: false, alter: true}).then(() => {
