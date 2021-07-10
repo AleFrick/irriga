@@ -3,7 +3,7 @@ var moment = require('moment');
 const conn = require('../database/conn_mysql')
 
 
-const MonitorWeather = conn.sequelize.define('cities', {
+const MonitorWeather = conn.sequelize.define('c', {
   id: {
     type: Sequelize.INTEGER,
     primaryKey: true,
@@ -12,12 +12,27 @@ const MonitorWeather = conn.sequelize.define('cities', {
   id_citie: {
     type: Sequelize.STRING
   },
-  temp
-  temp_min
-  temp_max
-  wind_speed
-  sunrise
-  sunset
+  temp: {
+    type: Sequelize.DOUBLE
+  },
+  temp_min: {
+    type: Sequelize.DOUBLE
+  },
+  temp_max: {
+    type: Sequelize.DOUBLE
+  }, 
+  wind_speed: {
+    type: Sequelize.DOUBLE
+  }, 
+  sunrise: {
+    type: Sequelize.TIME
+  },
+  sunset: {
+    type: Sequelize.TIME
+  },
+  rain: {
+    type: Sequelize.DOUBLE
+  },
   hr_altered:{
     type: Sequelize.TIME
   },
@@ -34,23 +49,23 @@ const MonitorWeather = conn.sequelize.define('cities', {
     } 
   }
 }, {  
-  tableName: 'cities',
+  tableName: 'monitor_weather',
   timestamps: false,
 })
 
-Cities.beforeCreate(async(Cities) => {        
-  Cities.dt_created = moment().format('YYYY-MM-DD')
-  Cities.dt_altered = moment().format('YYYY-MM-DD')
-  Cities.hr_altered = moment().format('HH:mm')
+MonitorWeather.beforeCreate(async(MonitorWeather) => {        
+  MonitorWeather.dt_created = moment().format('YYYY-MM-DD')
+  MonitorWeather.dt_altered = moment().format('YYYY-MM-DD')
+  MonitorWeather.hr_altered = moment().format('HH:mm')
 })
-Cities.beforeUpdate(async(Cities) => {    
-  Cities.dt_altered = moment().format('YYYY-MM-DD')
-  Cities.hr_altered = moment().format('HH:mm')
+MonitorWeather.beforeUpdate(async(MonitorWeather) => {    
+  MonitorWeather.dt_altered = moment().format('YYYY-MM-DD')
+  MonitorWeather.hr_altered = moment().format('HH:mm')
 })
 
-Cities.sync({force: false, alter: true}).then(() => {
-  console.log('Table Cities loaded successfuly');
+MonitorWeather.sync({force: false, alter: true}).then(() => {
+  console.log('Table MonitorWeather loaded successfuly');
 });
 
-module.exports = Cities;
+module.exports = MonitorWeather;
 
