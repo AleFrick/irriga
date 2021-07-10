@@ -1,6 +1,6 @@
 # Teste tecnico Irriga Global
 
-Projeto desenvolvido com base no teste aplicado pela  <a target="_blank" href="https://irrigaglobal.com/br/">Irriga Global</a> 
+Projeto desenvolvido com base no teste aplicado pela  <a href="https://irrigaglobal.com/br/" target="_blank">Irriga Global</a> 
 
 ## 🚀 Começando
 
