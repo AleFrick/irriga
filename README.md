@@ -15,9 +15,10 @@ Antes de rodar o servidor, precisa estar instalado o NodeJs e Mysql
 ### 🔧 Instalação
 
 Antes de iniciar a instalação é preciso configurar o .env com as credenciais e o endereço do banco no qual será utilizado.
-
-1- npm install: Irá instalar todas os pacotes necessários;
-
+````
+ npm install
+````
+Irá efetuar a instalação dos pacotes que estão configurados no package.json
 ## ⚙️ Executando os testes
 
 Explicar como executar os testes automatizados para este sistema.
