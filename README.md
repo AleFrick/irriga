@@ -1,6 +1,6 @@
 # Teste tecnico Irriga Global
 
-Um parágrafo da descrição do projeto vai aqui
+Projeto desenvolvido com base no teste aplicado pela  <a href="https://irrigaglobal.com/br/">Irriga Global</a> 
 
 ## 🚀 Começando
 
@@ -10,29 +10,13 @@ Consulte **Implantação** para saber como implantar o projeto.
 
 ### 📋 Pré-requisitos
 
-De que coisas você precisa para instalar o software e como instalá-lo?
-
-```
-Dar exemplos
-```
+Antes de rodar o servidor, precisa estar instalado o NodeJs e Mysql
 
 ### 🔧 Instalação
 
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
+Antes de iniciar a instalação é preciso configurar o .env com as credenciais e o endereço do banco no qual será utilizado.
 
-Diga como essa etapa será:
-
-```
-Dar exemplos
-```
-
-E repita:
-
-```
-Até finalizar
-```
-
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+1- npm install: Irá instalar todas os pacotes necessários;
 
 ## ⚙️ Executando os testes
 
@@ -96,4 +80,4 @@ Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](h
 
 
 ---
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
+⌨️ com ❤️ por [Alex Schmidt](https://gist.github.com/AleFrick) 😊
