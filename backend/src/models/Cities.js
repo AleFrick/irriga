@@ -9,39 +9,26 @@ const Cities = conn.sequelize.define('cities', {
       autoIncrement: true
     },  
     name: {
-      type: Sequelize.STRING
+      type: Sequelize.STRING,
+      allowNull: false,      
     },
-    hr_altered:{
-      type: Sequelize.TIME
+    latitude: {
+      type: Sequelize.DOUBLE,      
     },
-    dt_altered: {
-      type: Sequelize.DATEONLY,    
-      get: function() {
-        return moment(this.getDataValue('DateTime')).format('DD/MM/YYYY')
-      }
-    },    
-    dt_created: {
-      type: Sequelize.DATEONLY,    
-      get: function() {
-        return moment(this.getDataValue('DateTime')).format('DD/MM/YYYY')
-      } 
+    longitude: {      
+      type: Sequelize.DOUBLE,
+      
+    },
+    gmt: {
+      type: Sequelize.INTEGER,
+      allowNull: false,      
     }
   }, {  
     tableName: 'cities',
     timestamps: false,
   })
 
-  Cities.beforeCreate(async(Cities) => {        
-    Cities.dt_created = moment().format('YYYY-MM-DD')
-    Cities.dt_altered = moment().format('YYYY-MM-DD')
-    Cities.hr_altered = moment().format('HH:mm')
-  })
-  Cities.beforeUpdate(async(Cities) => {    
-    Cities.dt_altered = moment().format('YYYY-MM-DD')
-    Cities.hr_altered = moment().format('HH:mm')
-  })
-
-  Cities.sync({force: false, alter: true}).then(() => {
+  Cities.sync({force: false, alter: false}).then(() => {
     console.log('Table Cities loaded successfuly');
   });
   

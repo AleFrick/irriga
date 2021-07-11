@@ -22,8 +22,8 @@ getClimaCidadeDb = async(req, res) => {
       attributes: ['name', 'id']
     })
     let climaCitie = []
-    for(let i = 0; i<Cities.length;i++){
-      let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${Cities[i].name}&appid=9b12c926e2e3d6b81482cf88efc3f15a`)     
+    for(let i = 0; i<Cities.length;i++){            
+      let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${Cities[i].name.trim()}&appid=9b12c926e2e3d6b81482cf88efc3f15a`)            
       
       response.data.main.temp = (response.data.main.temp - 273.15).toFixed(0)
       response.data.main.temp_min = (response.data.main.temp_min - 273.15).toFixed(0)
@@ -72,6 +72,17 @@ insertDadosMonitor = async () =>{
       attributes: ['name', 'id']
     })    
     for(let i = 0; i<Cities.length;i++){
+      let monitor = await MonitorWeather.findAll({
+        where: {
+          dt_created: {
+            [Op.between]: [moment().format('yyyy-MM-DD'), moment().format('yyyy-MM-DD')]
+          }
+        }
+      })   
+      if(monitor.length>=1000) {
+        res.status(400).send('Número máximo de requisições diarias já alcançadas')
+        return
+      }
       let response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${Cities[i].name}&appid=9b12c926e2e3d6b81482cf88efc3f15a`)     
       
       response.data.main.temp = (response.data.main.temp - 273.15).toFixed(0)
@@ -118,28 +129,6 @@ teste =  async () => {
    60000
   );  
 }
-
-getQuantidade = async (req, res) => {  
-  try{
-    let monitor = await MonitorWeather.findAll({
-      where: {
-        dt_created: {
-          [Op.between]: [moment().format('yyyy-MM-DD'), moment().format('yyyy-MM-DD')]
-        }
-      }
-    })   
-    let Cities = await modelCities.findAll()       
-    if(monitor.length<(1000-Cities.length)){
-      res.status(200).send('pode continuar')
-    }else{
-      res.status(200).send('para')
-    }
-    
-  }catch(err){
-    res.status(400).send(err)
-  }
-}
-
 // teste()
 
-module.exports = { getClima, getClimaCidadeDb, getQuantidade }
+module.exports = { getClima, getClimaCidadeDb}
