@@ -31,36 +31,26 @@ const updateCity = async (param) => {
   if(response.cod){
     console.log(response.message)
     return
-  }
-  let sunrise = new Date(response.data.sys.sunrise* 1000) 
-  let sunset = new Date(response.data.sys.sunset* 1000)       
+  }     
   var t = await sequelize.transaction();
-  response.data.main.temp = (response.data.main.temp - 273.15).toFixed(0)
-  response.data.main.temp_min = (response.data.main.temp_min - 273.15).toFixed(0)
-  response.data.main.temp_max = (response.data.main.temp_max - 273.15).toFixed(0)
-  response.data.main.feels_like = (response.data.main.feels_like - 273.15).toFixed(0)
   try{
-    let monitor = await modelMonitorWeather.create({
+    let json = {
       id_citie: Cities.id,
-      temp: response.data.main.temp,
-      temp_min: response.data.main.temp_min || null,
-      temp_max: response.data.main.temp_max || null,
-      wind_speed: response.data.wind.speed || null,
-      sunrise: `${sunrise.getHours()}:${sunrise.getMinutes()}:${sunrise.getSeconds()}` || null,
-      sunset: `${sunset.getHours()}:${sunset.getMinutes()}:${sunset.getSeconds()}` || null,
-      rain: response.data.rain?response.data.rain['1h']:null,
+      temp: (response.data.main.temp - 273.15).toFixed(0) || null,
+      temp_min: (response.data.main.temp_min - 273.15).toFixed(0) || null,
+      temp_max: (response.data.main.temp_max - 273.15).toFixed(0) || null,
+      wind_speed: (response.data.main.feels_like - 273.15).toFixed(0) || null,
+      sunrise: `${(new Date(response.data.sys.sunrise* 1000)).getHours()}:${(new Date(response.data.sys.sunrise* 1000)).getMinutes()}:${(new Date(response.data.sys.sunrise* 1000)).getSeconds()}` || null,
+      sunset: `${(new Date(response.data.sys.sunset* 1000)).getHours()}:${(new Date(response.data.sys.sunset* 1000)).getMinutes()}:${(new Date(response.data.sys.sunset* 1000)).getSeconds()}` || null,
+      rain: response.data.rain?response.data.rain['1h']:'',
+    }
+    let monitor = await modelMonitorWeather.create({
+     json
     }, {transaction: t})            
     t.commit()
     console.log(`\n Dados atualizados da cidade de ${Cities.name}`)
     console.log({
-      id_citie: Cities.id,
-      temp: response.data.main.temp,
-      temp_min: response.data.main.temp_min || null,
-      temp_max: response.data.main.temp_max || null,
-      wind_speed: response.data.wind.speed || null,
-      sunrise: `${sunrise.getHours()}:${sunrise.getMinutes()}:${sunrise.getSeconds()}` || null,
-      sunset: `${sunset.getHours()}:${sunset.getMinutes()}:${sunset.getSeconds()}` || null,
-      rain: response.data.rain?response.data.rain['1h']:'',
+      json
     })
     console.log('\n')
     console.log('Informações anteriores salvas em banco')
