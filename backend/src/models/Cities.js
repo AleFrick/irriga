@@ -28,8 +28,8 @@ const Cities = conn.sequelize.define('cities', {
     timestamps: false,
   })
 
-  Cities.sync({force: false, alter: false}).then(() => {
-    console.log('Table Cities loaded successfuly');
+  Cities.sync({/* force: false, alter: false */}).then(() => {
+    // console.log('Table Cities loaded successfuly');
   });
   
   module.exports = Cities;

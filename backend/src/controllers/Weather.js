@@ -119,6 +119,34 @@ insertDadosMonitor = async () =>{
   }
 }
 
+monitoringCity = async (req, res) => {
+  if(!req.query.param){
+    res.status(400).send('Informe o dado')
+  }
+  console.log('alex')
+  var response = await modelCities.findOne({
+    where: {
+      name: req.query.param
+    }
+  })  
+  if(!response){    
+    response = await modelCities.findOne({
+      where: {
+        id: req.query.param
+      }
+    })
+    
+  }
+  
+  if(!response){
+    res.status(400).send('Cidade não foi localizada.')
+    return 
+  }
+
+  res.send(response)
+
+}
+
 teste =  async () => {  
   setInterval( async () => {
     console.log('\n Iniciando Monitoramento') 
@@ -131,4 +159,4 @@ teste =  async () => {
 }
 // teste()
 
-module.exports = { getClima, getClimaCidadeDb}
+module.exports = { getClima, getClimaCidadeDb, monitoringCity }

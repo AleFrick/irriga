@@ -64,7 +64,7 @@ MonitorWeather.beforeUpdate(async(MonitorWeather) => {
 })
 
 MonitorWeather.sync({force: false, alter: true}).then(() => {
-  console.log('Table MonitorWeather loaded successfuly');
+  // console.log('Table MonitorWeather loaded successfuly');
 });
 
 module.exports = MonitorWeather;

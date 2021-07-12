@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "prod": "pm2 start src/index.js",
-    "initilize_monitoring": "node src/controllers/Teste.js"
+    "initilize_monitoring": "node src/controllers/ScriptShell.js"
   },
   "license": "MIT",
   "dependencies": {
