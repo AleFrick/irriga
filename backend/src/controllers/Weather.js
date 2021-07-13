@@ -8,8 +8,12 @@ const MonitorWeather = require('../models/MonitorWeather')
 
 const getClima = async (req, res) => {
   try {
+    if (!req.query.cidade) {
+      res.status(400).send('Informa a cidade.')
+      return
+    }
     const response = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${req.query.cidade}&appid=9b12c926e2e3d6b81482cf88efc3f15a`)
-    res.send(await response.data)
+    res.send(response.data)
   } catch (err) {
     res.status(400).send(err)
   }
@@ -144,4 +148,10 @@ const monitoringAuth = async () => {
 }
 // teste()
 
-module.exports = { getClima, getClimaCidadeDb, monitoringCity, monitoringAuth }
+const oi = async (req, res) => {
+  res.send({
+    teste: 'oi'
+  })
+}
+
+module.exports = { getClima, getClimaCidadeDb, monitoringCity, monitoringAuth, oi }
