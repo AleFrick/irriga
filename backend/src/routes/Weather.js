@@ -6,5 +6,4 @@ routes.get('/getclima', WeatherControll.getClima)
 routes.get('/getclimadb', WeatherControll.getClimaCidadeDb)
 routes.get('/monitorcity', WeatherControll.monitoringCity)
 
-
-module.exports = routes;
+module.exports = routes
