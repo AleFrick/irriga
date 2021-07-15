@@ -1,43 +1,45 @@
+
 # Teste tecnico Irriga Global
 
 Projeto desenvolvido com base no teste aplicado pela  <a href="https://irrigaglobal.com/br/" target="_blank">Irriga Global</a> 
 
-## 🚀 Começando
+<p align="center">
+ <a href="#Para começar">Objetivo</a> •
+ <a href="#roadmap">Roadmap</a> • 
+ <a href="#tecnologias">Tecnologias</a> • 
+ <a href="#contribuicao">Contribuição</a> • 
+ <a href="#licenc-a">Licença</a> • 
+ <a href="#autor">Autor</a>
+</p>
 
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Consulte **Implantação** para saber como implantar o projeto.
+## 🚀 Para começar
+
+As intruções irão fazer com que obtenha a cópia e consiga executar o projeto local.
 
 ### 📋 Pré-requisitos
 
-Antes de rodar o servidor, precisa estar instalado o NodeJs e Mysql
+Antes de rodar o servidor, precisa estar instalado:
+
+* [NodeJs] (https://nodejs.dev/)
+* [Mysql] (https://www.mysql.com/)
 
 ### 🔧 Instalação
 
-Antes de iniciar a instalação é preciso configurar o .env com as credenciais e o endereço do banco no qual será utilizado.
+A instalação deve ser feita com o comando,
 ````
  npm install
 ````
-Irá efetuar a instalação dos pacotes que estão configurados no package.json
+No qual irá efetuar a instalação dos pacotes que estão configurados no package.json
+
 ## ⚙️ Executando os testes
 
-Explicar como executar os testes automatizados para este sistema.
-
-### 🔩 Analise os testes de ponta a ponta
-
-Explique que eles verificam esses testes e porquê.
-
+Os testes foram desenvolvidos no arquivo ./test/test.js.
+Para iniciar os testes é necessário executar o comando
 ```
-Dar exemplos
+npm run test
 ```
-
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
+no qual pode ser alterado este comando dentro do package.js.
 
 ## 📦 Desenvolvimento
 
@@ -45,40 +47,23 @@ Adicione notas adicionais sobre como implantar isso em um sistema ativo
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
+Foram usadas as seguintes ferramentas para desenvolver este projeto.
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
+* [Axios](https://www.axios.com/) 
+* [Chai] (https://www.chaijs.com/)
+* [Mocha] (https://mochajs.org/) 
+* [Moment] (https://momentjs.com/)
+* [Sequelize] (https://sequelize.org/)
 
-## 🖇️ Colaborando
-
-Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoSobreContribuicoes) para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
-
-## 📌 Versão
-
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
 
 ## ✒️ Autores
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
+Desejvolvido por:
 
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
+* **Alex Schmidt** - *Trabalho Inicial* - [AlexSchmidt](https://github.com/AleFrick)
 
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
 
 ## 📄 Licença
+MIT License
 
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
-
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢
-* Convide alguém da equipe para uma cerveja 🍺 
-* Obrigado publicamente 🤓.
-* etc.
-
-
----
-⌨️ com ❤️ por [Alex Schmidt](https://gist.github.com/AleFrick) 😊
+Copyright (c) 2021 Alex Schmidt
