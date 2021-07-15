@@ -146,7 +146,8 @@ const monitoringAuth = async () => {
     console.log('\n Fim monitoramento')
   }, 1800000)
 }
-// teste()
+
+monitoringAuth()
 
 const oi = async (req, res) => {
   res.send({

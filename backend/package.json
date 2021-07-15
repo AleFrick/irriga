@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "prod": "pm2 start src/index.js",
+    "prod": "pm2 start src/index.js -n testeIrriga",
     "initilize_monitoring": "node src/controllers/ScriptShell.js",
     "standart": "standard src/controllers/*.js src/database/*.js src/routes/*.js ",
     "test": "mocha --timeout 100000"
