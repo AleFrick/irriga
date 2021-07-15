@@ -1,84 +1,68 @@
-# Teste tecnico Irriga Global
+
+# Teste técnico Irriga Global
 
 Projeto desenvolvido com base no teste aplicado pela  <a href="https://irrigaglobal.com/br/" target="_blank">Irriga Global</a> 
 
-## 🚀 Começando
-
-Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
-
-Consulte **Implantação** para saber como implantar o projeto.
-
 ### 📋 Pré-requisitos
 
-Antes de rodar o servidor, precisa estar instalado o NodeJs e Mysql
+Antes de rodar o servidor, precisa estar instalado:
+
+* [NodeJs] (https://nodejs.dev/)
+* [Mysql] (https://www.mysql.com/)
+* [PM2] (https://pm2.keymetrics.io/)
 
 ### 🔧 Instalação
 
-Antes de iniciar a instalação é preciso configurar o .env com as credenciais e o endereço do banco no qual será utilizado.
+Antes de efetuar a instalação padrão, é necessário instalar os pacotes que estão descrito em 'Pré-Requisitos', após a instalação deve entrar na pasta raiz do projeto
+e executar o comando,
 ````
  npm install
 ````
-Irá efetuar a instalação dos pacotes que estão configurados no package.json
-## ⚙️ Executando os testes
+No qual irá efetuar a instalação dos pacotes que estão configurados no package.json
 
-Explicar como executar os testes automatizados para este sistema.
+## ⚙️ Comandos
 
-### 🔩 Analise os testes de ponta a ponta
-
-Explique que eles verificam esses testes e porquê.
-
+1) Para iniciar os testes é necessário executar o comando, os testes podem ser conferidos dentro do arquivo ./test/test.js
 ```
-Dar exemplos
+npm run test
 ```
 
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
+2) Para efetuar manualmente a atualização da previsão do tempo, pode ser executado via shell o seguinte comando
 ```
-Dar exemplos
+npm run initilize_monitoring :param
 ```
+o :param pode ser o ID ou o nome da cidade, caso queira, pode deixar em branco que irá executar para todas as cidades que estão na base de dados.
 
-## 📦 Desenvolvimento
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
+3) Para poder monitrar e executar em modo produção utilizar o comando 
+```
+npm run prod
+```
+irá executar o projeto utilizando o pm2
+ * Para remover de produção 
+ ```
+ pm2 delete irrigaTeste
+ ```
+* Para verificar os logs do banco
+```
+pm2 logs irrigaTeste
+```
 
 ## 🛠️ Construído com
 
-Mencione as ferramentas que você usou para criar seu projeto
+Foram usadas as seguintes ferramentas para desenvolver este projeto.
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
-
-## 🖇️ Colaborando
-
-Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoSobreContribuicoes) para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
-
-## 📌 Versão
-
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
-
-## ✒️ Autores
-
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
-
-## 📄 Licença
-
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
-
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢
-* Convide alguém da equipe para uma cerveja 🍺 
-* Obrigado publicamente 🤓.
-* etc.
+* Axios (https://www.axios.com/) 
+* Chai (https://www.chaijs.com/)
+* Mocha (https://mochajs.org/) 
+* Moment (https://momentjs.com/)
+* Sequelize (https://sequelize.org/)
 
 
----
-⌨️ com ❤️ por [Alex Schmidt](https://gist.github.com/AleFrick) 😊
+## ✒️ Autor
+
+Desejvolvido por:
+
+[Alex Schmidt](https://github.com/AleFrick)
+
+
+Copyright (c) 2021 Alex Schmidt
