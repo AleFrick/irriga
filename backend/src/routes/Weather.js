@@ -4,7 +4,6 @@ const WeatherControll = require('../controllers/Weather')
 
 routes.get('/getclima', WeatherControll.getClima)
 routes.get('/getclimadb', WeatherControll.getClimaCidadeDb)
-routes.get('/monitorcity', WeatherControll.monitoringCity)
-routes.get('/oi', WeatherControll.oi)
+routes.post('/monitorcity', WeatherControll.monitoringCity)
 
 module.exports = routes
