@@ -26,7 +26,7 @@ const Cities = conn.sequelize.define('cities', {
   timestamps: false
 })
 
-Cities.sync({/* force: false, alter: false */}).then(() => {
+Cities.sync({ force: false, alter: true }).then(() => {
   // console.log('Table Cities loaded successfuly');
 })
 
