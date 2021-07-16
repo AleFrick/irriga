@@ -22,6 +22,8 @@ No qual irá efetuar a instalação dos pacotes que estão configurados no packa
 
 ## ⚙️ Comandos
 
+Antes de iniciar, deve ser configurado os acessos do banco de dados(ip, senha, usuário e banco) dentro do arquivo .env
+ 
 1) Para iniciar os testes é necessário executar o comando, os testes podem ser conferidos dentro do arquivo ./test/test.js
 ```
 npm run test
